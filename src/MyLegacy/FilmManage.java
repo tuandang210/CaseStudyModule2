@@ -178,6 +178,9 @@ public class FilmManage implements Serializable{
         System.out.println("7: Show TV series with the most seasons");
         System.out.println("8: Crawl top 10 best movies in week on boxOfficeMojo");
         System.out.println("9: Crawl top 20 movies of all time on boxOfficeMojo");
+        System.out.println("10: Add film to your favorite list");
+        System.out.println("11: Remote film from your favorite list");
+        System.out.println("12: Show your favorite list");
         System.out.println("0: Sign out");
         System.out.println("Enter Code");
         System.out.println("_________________________________________________________________________________________________");

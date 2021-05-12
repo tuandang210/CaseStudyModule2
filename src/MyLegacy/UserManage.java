@@ -9,6 +9,9 @@ public class UserManage extends FilmManage implements Serializable {
     public static final String USER_DATA = "src\\Data\\UserData.txt";
     public static final String PASSWORDS_REGEX = "Passwords must be at least 6 characters";
     public static final String USERNAME_REGEX = "Username must be at least 6 characters";
+    int index;
+    List<Film> favor = new ArrayList<>();
+
     List<User> account = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
@@ -47,9 +50,113 @@ public class UserManage extends FilmManage implements Serializable {
                 case 9:
                     top20AllTimeWorldWide();
                     break;
+                case 10:
+                    updateFavoriteList();
+                    break;
+                case 11:
+                    removeFilmOnFavoriteList();
+                    break;
+                case 12:
+                    showFavoriteList();
+                    break;
             }
         }
         while (choice != 0);
+    }
+
+    public void showFavoriteList() {
+        List<Film> x = readDataFavor();
+        showDataFavor(x);
+    }
+
+    public void removeFilmOnFavoriteList() throws IOException {
+        List<Film> xyz = readDataFavor();
+        removeFavor(xyz);
+        writeDataFavor(xyz);
+    }
+
+    public void updateFavoriteList() throws Exception {
+        creatFile();
+        favor = readDataFavor();
+        checkFilmFavor(favor);
+        writeDataFavor(favor);
+    }
+
+    public void creatFile() throws Exception {
+        File file = new File(index + ".txt");
+        if (file.createNewFile()) {
+            System.out.println();
+        } else {
+            System.out.println();
+        }
+    }
+
+    public void removeFavor(List<Film> xyz) {
+        int count = checkFavorToDelete(xyz);
+        if (count != -1) {
+            xyz.remove(count);
+            System.out.println("The list updated");
+        } else {
+            System.out.println("This movie isn't on your list");
+        }
+    }
+
+    public int checkFavorToDelete(List<Film> favor) {
+        System.out.println("Enter name of Film that you want to delete: ");
+        String op = sc.next();
+        int count = -1;
+        for (int i = 0; i < favor.size(); i++) {
+            if (favor.get(i).getName().equals(op)) {
+                return i;
+            }
+        }
+        return count;
+    }
+
+    public void writeDataFavor(List<Film> favor) throws IOException {
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(index + ".txt"));
+        oos.writeObject(favor);
+        oos.close();
+    }
+
+    public void checkFilmFavor(List<Film> favor) {
+        int x = demoCheckFilmFavor();
+        if (x != -1) {
+            favor.add(filmList.get(x));
+        } else {
+            System.err.println("This film isn't exists");
+            checkFilmFavor(favor);
+        }
+    }
+
+    public int demoCheckFilmFavor() {
+        int checkFavor = -1;
+        System.out.println("Input film that you want: ");
+        String favorFilm = sc.next();
+        for (int i = 0; i < filmList.size(); i++) {
+            if (filmList.get(i).getName().equals(favorFilm)) {
+                return i;
+            }
+        }
+        return checkFavor;
+    }
+
+    public void showDataFavor(List<Film> x) {
+        for (Film a : x) {
+            System.out.println(a);
+        }
+    }
+
+    public List<Film> readDataFavor() {
+        List<Film> x = new ArrayList<>();
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(index + ".txt"));
+            x = (List<Film>) ois.readObject();
+            ois.close();
+        } catch (Exception e) {
+            System.out.println();
+        }
+        return x;
     }
 
     public void mainToy() throws Exception {
@@ -125,6 +232,7 @@ public class UserManage extends FilmManage implements Serializable {
                     if (account.get(i).getRole().equals("Admin")) {
                         mainToy();
                     } else if (account.get(i).getRole().equals("User")) {
+                        index = i;
                         userMainToy();
                     }
                 } else {
