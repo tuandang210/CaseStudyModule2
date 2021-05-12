@@ -168,7 +168,7 @@ public class FilmManage implements Serializable{
 
     public void userMenu() {
         System.out.println();
-        System.out.println("|_______________________________________________________________________________________________________|");
+        System.out.println("._______________________________________________________________________________________________________.");
         System.out.println("| WELCOME                                                                                               |");
         System.out.println("| 1: Show all movies information                  7: Show TV series with the most seasons               |");
         System.out.println("| 2: Sort movie by imdb rate                      8: Crawl top 10 best movies in week on boxOfficeMojo  |");
@@ -183,14 +183,14 @@ public class FilmManage implements Serializable{
 
     public void myMenu() {
         System.out.println();
-        System.out.println("|_______________________________________________________________________________________________________|");
+        System.out.println("._______________________________________________________________________________________________________.");
         System.out.println("| WELCOME                                                                                               |");
         System.out.println("| 1: Add a movie information                            8: Show film by id                              |");
         System.out.println("| 2: Show all movies information                        9: Show best revenue movie series               |");
         System.out.println("| 3: Replace movie by id                                10: Show TV series with the most seasons        |");
         System.out.println("| 4: Delete movie by id                                 11: Write data to file                          |");
         System.out.println("| 5: Sort movie by imdb rate                            12: Read data from file                         |");
-        System.out.println("| 6: Sort movie by name                                                                                 |");
+        System.out.println("| 6: Sort movie by name                                 13: Delete Account                              |");
         System.out.println("| 7: Sort movie by release year                                                                         |");
         System.out.println("| 0: Sign out                                                                                           |");
         System.out.println("| Enter Code                                                                                            |");

@@ -15,6 +15,54 @@ public class UserManage extends FilmManage implements Serializable {
     List<User> account = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
+    public void deleteAcc() throws Exception{
+        account = readAccFromFile();
+        int checked = checkUsername();
+        if (checked != -1) {
+            if(checked == 0){
+                System.err.println("CAN NOT DELETE MAIN ADMIN");
+                return;
+            }
+            if (account.get(checked).getRole().equals("User")) {
+                deleteFavoriteFile(checked);
+            }
+            account.remove(checked);
+        } else {
+            System.err.println("This username isn't exists");
+        }
+        System.out.println("Success!");
+        System.out.println(account);
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(USER_DATA));
+        oos.writeObject(account);
+        oos.close();
+    }
+
+    public void deleteFavoriteFile(int checked) {
+        try {
+            File file = new File(checked + ".txt");
+            if (file.delete()) {
+                System.out.println();
+            } else {
+                System.out.println();
+            }
+        } catch (Exception e) {
+            System.out.println();
+        }
+    }
+
+    public int checkUsername() {
+        int checkUn = -1;
+        System.out.println("Enter username that you want to delete: ");
+        sc.nextLine();
+        String un = sc.next();
+        for (int i = 0; i < account.size(); i++) {
+            if (un.equals(account.get(i).getUsername())) {
+                return i;
+            }
+        }
+        return checkUn;
+    }
+
     public void userMainToy() throws Exception {
         int choice = -1;
         filmList = readData();
@@ -201,6 +249,9 @@ public class UserManage extends FilmManage implements Serializable {
                 case 12:
                     ShowDataFromReadFile();
                     break;
+                case 13:
+                    deleteAcc();
+                    break;
             }
         }
         while (choice != 0);
@@ -270,7 +321,9 @@ public class UserManage extends FilmManage implements Serializable {
     }
 
     public String inputRole() {
-        System.out.println("Admin or User");
+        System.out.println(".________________.");
+        System.out.println("|  Admin | User  |");
+        System.out.println("|________________|");
         System.out.println("Input role: ");
         String role = sc.next();
         if (role.equals("Admin") || role.equals("User")) {
@@ -285,10 +338,10 @@ public class UserManage extends FilmManage implements Serializable {
         int order = -1;
         do {
             System.out.println();
-            System.out.println("|________________|");
+            System.out.println(".________________.");
             System.out.println("| 1: Log in      |");
             System.out.println("| 2: Register    |");
-            System.out.println("| 0: System exit |");
+            System.out.println("| 0: Exit        |");
             System.out.println("|________________|");
             order = getOrder();
 
