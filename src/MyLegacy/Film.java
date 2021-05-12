@@ -84,8 +84,8 @@ public class Film implements Serializable {
     @Override
     public String toString() {
         return "Film " +
-                "id: " + id +
-                ", name: " + name +
+                "name: " + name +
+                ", id: " + id +
                 ", genre: " + filmGenre +
                 ", dir: " + director +
                 ", main: " + mainStars +

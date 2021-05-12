@@ -258,6 +258,7 @@ public class FilmManage implements Serializable{
     }
 
     public void displayFilmInformation() {
+        System.out.println("Film Library:");
         for (Film x : filmList) {
             System.out.println(x);
         }
