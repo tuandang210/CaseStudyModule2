@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class FilmManage {
+public class FilmManage implements Serializable{
     public static final String URL1 = "https://www.boxofficemojo.com/weekend/2021W17/?ref_=bo_hm_rw";
     public static final String URL2 = "https://www.boxofficemojo.com/chart/top_lifetime_gross/?area=XWW";
     public static final String CRAWL_CODE1 = "<a class=\"a-link-normal\" href=\"/release/rl(.*?)/?ref_=bo_we_table_(.*?)\">(.*?)</a>";
@@ -23,94 +23,6 @@ public class FilmManage {
     MovieSeries film1 = new MovieSeries(0, "Avatar", "High", "James", "Sam", 9.8, 2009, "Paramount", "162", 2802);
     MovieSeries film2 = new MovieSeries(1, "Avengers", "Super", "Anthony", "Stark", 8.4, 2019, "Disney", "181", 2798);
     TelevisionSeries film3 = new TelevisionSeries(2, "Game of Thrones", "Fantasy", "David", "Sean Bean", 9.3, 2011, 8, "60 minutes", "HBO");
-
-    public void userMainToy() throws Exception {
-        int choice = -1;
-        filmList = readData();
-        do {
-            userMenu();
-            choice = checkChoice();
-
-            switch (choice) {
-                case 1:
-                    displayFilmInformation();
-                    break;
-                case 2:
-                    selectionSortByImdbRate();
-                    break;
-                case 3:
-                    selectionSortByName();
-                    break;
-                case 4:
-                    selectionSortByReleaseYear();
-                    break;
-                case 5:
-                    showFilmById();
-                    break;
-                case 6:
-                    showBestMovieByMoney();
-                    break;
-                case 7:
-                    showTelevisionSeriesByTheMostSeasons();
-                    break;
-                case 8:
-                    top10WeekBoxOfficeMojo();
-                    break;
-                case 9:
-                    top20AllTimeWorldWide();
-                    break;
-            }
-        }
-        while (choice != 0);
-    }
-
-    public void mainToy() throws Exception {
-        int choice = -1;
-        filmList = readData();
-        do {
-            myMenu();
-            choice = checkChoice();
-            switch (choice) {
-                case 1:
-                    inputInformation();
-                    break;
-                case 2:
-                    displayFilmInformation();
-                    break;
-                case 3:
-                    replaceFilmById();
-                    break;
-                case 4:
-                    deleteFilmById();
-                    break;
-                case 5:
-                    selectionSortByImdbRate();
-                    break;
-                case 6:
-                    selectionSortByName();
-                    break;
-                case 7:
-                    selectionSortByReleaseYear();
-                    break;
-                case 8:
-                    showFilmById();
-                    break;
-                case 9:
-                    showBestMovieByMoney();
-                    break;
-                case 10:
-                    showTelevisionSeriesByTheMostSeasons();
-                    break;
-                case 11:
-                    writeDataToFile();
-                    break;
-                case 12:
-                    ShowDataFromReadFile();
-                    break;
-            }
-        }
-        while (choice != 0);
-    }
 
     public int checkChoice() {
         int choice;

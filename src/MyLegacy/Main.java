@@ -8,8 +8,6 @@ public class Main {
 
         UserManage userManage = new UserManage();
 
-        userManage.addSomeObj();
-
         List<User> account = userManage.readAccFromFile();
         System.out.println("Registered accounts");
         System.out.println(account);

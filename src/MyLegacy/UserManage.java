@@ -12,10 +12,92 @@ public class UserManage extends FilmManage implements Serializable {
     List<User> account = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
-    public void addSomeObj() {
-        filmList.add(film1);
-        filmList.add(film2);
-        filmList.add(film3);
+    public void userMainToy() throws Exception {
+        int choice = -1;
+        filmList = readData();
+        do {
+            userMenu();
+            choice = checkChoice();
+
+            switch (choice) {
+                case 1:
+                    displayFilmInformation();
+                    break;
+                case 2:
+                    selectionSortByImdbRate();
+                    break;
+                case 3:
+                    selectionSortByName();
+                    break;
+                case 4:
+                    selectionSortByReleaseYear();
+                    break;
+                case 5:
+                    showFilmById();
+                    break;
+                case 6:
+                    showBestMovieByMoney();
+                    break;
+                case 7:
+                    showTelevisionSeriesByTheMostSeasons();
+                    break;
+                case 8:
+                    top10WeekBoxOfficeMojo();
+                    break;
+                case 9:
+                    top20AllTimeWorldWide();
+                    break;
+            }
+        }
+        while (choice != 0);
+    }
+
+    public void mainToy() throws Exception {
+        int choice = -1;
+        filmList = readData();
+        do {
+            myMenu();
+            choice = checkChoice();
+            switch (choice) {
+                case 1:
+                    inputInformation();
+                    break;
+                case 2:
+                    displayFilmInformation();
+                    break;
+                case 3:
+                    replaceFilmById();
+                    break;
+                case 4:
+                    deleteFilmById();
+                    break;
+                case 5:
+                    selectionSortByImdbRate();
+                    break;
+                case 6:
+                    selectionSortByName();
+                    break;
+                case 7:
+                    selectionSortByReleaseYear();
+                    break;
+                case 8:
+                    showFilmById();
+                    break;
+                case 9:
+                    showBestMovieByMoney();
+                    break;
+                case 10:
+                    showTelevisionSeriesByTheMostSeasons();
+                    break;
+                case 11:
+                    writeDataToFile();
+                    break;
+                case 12:
+                    ShowDataFromReadFile();
+                    break;
+            }
+        }
+        while (choice != 0);
     }
 
     public int getOrder() {
