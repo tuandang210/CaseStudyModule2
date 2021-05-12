@@ -65,6 +65,7 @@ public class UserManage extends FilmManage implements Serializable {
     }
 
     public void showFavoriteList() {
+        System.out.println("Your favorite list:");
         List<Film> x = readDataFavor();
         showDataFavor(x);
     }
@@ -284,10 +285,11 @@ public class UserManage extends FilmManage implements Serializable {
         int order = -1;
         do {
             System.out.println();
-            System.out.println("1: Log in");
-            System.out.println("2: Register");
-            System.out.println("0: System exit");
-            System.out.println("______________");
+            System.out.println("|________________|");
+            System.out.println("| 1: Log in      |");
+            System.out.println("| 2: Register    |");
+            System.out.println("| 0: System exit |");
+            System.out.println("|________________|");
             order = getOrder();
 
             switch (order) {
