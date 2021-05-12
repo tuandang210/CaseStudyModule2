@@ -102,11 +102,10 @@ public class UserManage extends FilmManage implements Serializable {
     }
 
     public int checkFavorToDelete(List<Film> favor) {
-        System.out.println("Enter name of Film that you want to delete: ");
-        String op = sc.next();
+        int op = checkIdException();
         int count = -1;
         for (int i = 0; i < favor.size(); i++) {
-            if (favor.get(i).getName().equals(op)) {
+            if (favor.get(i).getId() == op) {
                 return i;
             }
         }
@@ -131,10 +130,9 @@ public class UserManage extends FilmManage implements Serializable {
 
     public int demoCheckFilmFavor() {
         int checkFavor = -1;
-        System.out.println("Input film that you want: ");
-        String favorFilm = sc.next();
+        int favorFilm = checkIdException();
         for (int i = 0; i < filmList.size(); i++) {
-            if (filmList.get(i).getName().equals(favorFilm)) {
+            if (filmList.get(i).getId() == favorFilm) {
                 return i;
             }
         }

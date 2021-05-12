@@ -293,20 +293,22 @@ public class FilmManage implements Serializable{
         System.out.println("Input film information");
         int id = checkId11();
         System.out.println("Input name: ");
-        String name = sc.next();
+        sc.nextLine();
+        String name = sc.nextLine();
         System.out.println("Input film genre: ");
-        String filmGenre = sc.next();
+        String filmGenre = sc.nextLine();
         System.out.println("Input director: ");
-        String director = sc.next();
-        System.out.println("Inout main stars: ");
-        String mainStars = sc.next();
+        String director = sc.nextLine();
+        System.out.println("Input main stars: ");
+        String mainStars = sc.nextLine();
         double imdbRate = getImdbRate1();
         int releaseYear = getReleaseYear1();
         int numberOfSeasons = getNumberOfSeasons1();
         System.out.println("Input avg episode length: ");
-        String avgEpisodeLength = sc.next();
+        sc.nextLine();
+        String avgEpisodeLength = sc.nextLine();
         System.out.println("Input release platform: ");
-        String releasePlatform = sc.next();
+        String releasePlatform = sc.nextLine();
         return new TelevisionSeries(id, name, filmGenre, director, mainStars,
                 imdbRate, releaseYear, numberOfSeasons, avgEpisodeLength, releasePlatform);
     }
@@ -339,19 +341,21 @@ public class FilmManage implements Serializable{
         System.out.println("Input film information");
         int id = checkId11();
         System.out.println("Input name: ");
-        String name = sc.next();
+        sc.nextLine();
+        String name = sc.nextLine();
         System.out.println("Input film genre: ");
-        String filmGenre = sc.next();
+        String filmGenre = sc.nextLine();
         System.out.println("Input director: ");
-        String director = sc.next();
-        System.out.println("Inout main stars: ");
-        String mainStars = sc.next();
+        String director = sc.nextLine();
+        System.out.println("Input main stars: ");
+        String mainStars = sc.nextLine();
         double imdbRate = getImdbRate1();
         int releaseYear = getReleaseYear1();
         System.out.println("Input distributed: ");
-        String distributedBy = sc.next();
+        sc.nextLine();
+        String distributedBy = sc.nextLine();
         System.out.println("Input running time: ");
-        String runningTime = sc.next();
+        String runningTime = sc.nextLine();
         double worldWideBoxOffice = getWorldWideBoxOffice1();
         return new MovieSeries(id, name, filmGenre, director, mainStars, imdbRate,
                 releaseYear, distributedBy, runningTime, worldWideBoxOffice);
