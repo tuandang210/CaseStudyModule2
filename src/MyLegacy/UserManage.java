@@ -28,13 +28,27 @@ public class UserManage extends FilmManage implements Serializable {
             }
             acc.remove(checked);
             System.out.println("Success!");
+            System.out.println(acc);
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(USER_DATA));
+            oos.writeObject(acc);
+            oos.close();
         } else {
             System.err.println("This username isn't exists");
+            deleteAcc();
         }
-        System.out.println(acc);
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(USER_DATA));
-        oos.writeObject(acc);
-        oos.close();
+    }
+
+    public int checkUsername() {
+        int checkUn = -1;
+        System.out.println("Enter username that you want to delete: ");
+        sc.nextLine();
+        String un = sc.next();
+        for (int i = 0; i < acc.size(); i++) {
+            if (un.equals(acc.get(i).getUsername())) {
+                return i;
+            }
+        }
+        return checkUn;
     }
 
     public void deleteFavoriteFile(int checked) {
@@ -48,20 +62,6 @@ public class UserManage extends FilmManage implements Serializable {
         } catch (Exception e) {
             System.out.println();
         }
-    }
-
-    public int checkUsername() {
-        int checkUn = -1;
-        System.out.println("Enter username that you want to delete: ");
-        sc.nextLine();
-        String un = sc.next();
-        sc.nextLine();
-        for (int i = 0; i < acc.size(); i++) {
-            if (un.equals(acc.get(i).getUsername())) {
-                return i;
-            }
-        }
-        return checkUn;
     }
 
     public void userMainToy() throws Exception {
