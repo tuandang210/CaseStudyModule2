@@ -176,7 +176,7 @@ public class FilmManage implements Serializable{
         System.out.println("| 4: Sort movie by release year                   10: Add film to your favorite list                    |");
         System.out.println("| 5: Show film by id                              11: Remote film from your favorite list               |");
         System.out.println("| 6: Show best revenue movie series               12: Show your favorite list                           |");
-        System.out.println("| 0: Sign out                                                                                           |");
+        System.out.println("| 0: Sign out                                     13: Change Password                                   |");
         System.out.println("| Enter Code                                                                                            |");
         System.out.println("|_______________________________________________________________________________________________________|");
     }
@@ -191,7 +191,7 @@ public class FilmManage implements Serializable{
         System.out.println("| 4: Delete movie by id                                 11: Write data to file                          |");
         System.out.println("| 5: Sort movie by imdb rate                            12: Read data from file                         |");
         System.out.println("| 6: Sort movie by name                                 13: Delete Account                              |");
-        System.out.println("| 7: Sort movie by release year                                                                         |");
+        System.out.println("| 7: Sort movie by release year                         14: Change Password                             |");
         System.out.println("| 0: Sign out                                                                                           |");
         System.out.println("| Enter Code                                                                                            |");
         System.out.println("|_______________________________________________________________________________________________________|");
